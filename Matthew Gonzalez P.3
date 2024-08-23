@@ -1,0 +1,37 @@
+def log_in(correctName, correctPassword):
+    counter = 0
+    is_logged_in = False 
+    RED = "\033[91m"
+    GREEN = "\033[92m"
+    BLUE = "\033[94m"
+    while not is_logged_in and counter < 3:
+        name1 = input("Player 1, enter your gamertag: ")
+        password = input(name1 + " enter your password: ")
+
+        if name1 == correctName and password == correctPassword:
+            print(name1 + " is authorised",GREEN)
+            is_logged_in = True
+        else:
+            print("Access Denied",RED)
+            counter += 1
+            if counter < 3:
+                print(f"You have {3 - counter} attempts left.")
+            else:
+                print("Solve this problem to continue",BLUE)
+                verify = input("What is your name in all caps -")
+                if verify == verification:
+                    counter = 0
+                    continue
+                else:
+                    print("You have been locked out.")
+
+    if is_logged_in:
+        print("Welcome, you are now logged in.")
+
+verification = "JACK"
+correctName = "Jack"
+correctPassword = "Jack123"
+log_in(correctName, correctPassword)
+
+
+
